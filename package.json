@@ -13,6 +13,8 @@
     "express": "~4.13.0",
     "jsonwebtoken": "~5.0.2",
     "mongoose": "~4.0.6",
-    "lodash": "~3.10.0"
+    "lodash": "~3.10.0",
+    "bcrypt": "~0.8.3",
+    "is-there": "~4.0.0"
   }
 }
