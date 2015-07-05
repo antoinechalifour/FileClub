@@ -1,19 +1,50 @@
 <dom-module id="fc-login">
   <style>
-
   </style>
   <template>
     <h1>Login</h1>
-    <paper-input label="Username"></paper-input>
-    <paper-input label="Password"></paper-input>
+    <paper-input
+      id="inputUsername"
+      label="Username"></paper-input>
+    <paper-input
+      id="inputPassword"
+      label="Password"></paper-input>
+    <paper-button
+      on-click="login"
+      raised>Login</paper-button>
+
+    <iron-ajax
+      id="ajax"
+      url="/auth/local"
+      handle-as="json"
+      on-response="handleReponse"
+      method="POST"
+      content-type="application/json"
+    ></iron-ajax>
   </template>
   <script>
     (function(){
       'use strict';
 
       Polymer({
-        is: 'fc-login'
-      })
+        is: 'fc-login',
+
+        login: function(){
+          var ajaxCall = this.$.ajax;
+          var username = this.$.inputUsername.value;
+          var password = this.$.inputPassword.value;
+          ajaxCall.body = JSON.stringify({
+            username: username,
+            password: password
+          });
+
+          ajaxCall.generateRequest();
+        },
+
+        handleResponse: function(response){
+          console.log(response);
+        }
+      });
     })();
   </script>
 </dom-module>
