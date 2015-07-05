@@ -31,7 +31,11 @@
         is: 'fc-login',
 
         properties: {
-          token: String
+          token: {
+            type: String,
+            notify: true,
+            readOnly: true
+          }
         },
 
         login: function(){
@@ -47,7 +51,7 @@
         },
 
         handleResponse: function(e, req){
-          this.token = this.response;
+          this._setToken(this.response.token);
         }
       });
     })();

@@ -21,6 +21,7 @@
           <fc-login token="{{token}}"></fc-login>
           <fc-signup></fc-signup>
         </iron-pages>
+        <p>{{token}}</p>
     </paper-material>
   </template>
   <script>
@@ -32,6 +33,7 @@
 
         attached: function(){
           this.selected = 0;
+          this.token = 'Not set yet.';
         }
       });
     })();
