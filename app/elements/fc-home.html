@@ -18,7 +18,7 @@
         </paper-tabs>
 
         <iron-pages selected="{{selected}}">
-          <fc-login></fc-login>
+          <fc-login token="{{token}}"></fc-login>
           <fc-signup></fc-signup>
         </iron-pages>
     </paper-material>
@@ -30,13 +30,10 @@
       Polymer({
         is: 'fc-home',
 
-        properties: {
-          selected: {
-            value: 0,
-            type: Number
-          }
+        attached: function(){
+          this.selected = 0;
         }
-      })
+      });
     })();
   </script>
 </dom-module>

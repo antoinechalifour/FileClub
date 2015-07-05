@@ -16,10 +16,11 @@
     <iron-ajax
       id="ajax"
       url="/auth/local"
-      handle-as="json"
-      on-response="handleReponse"
-      method="POST"
       content-type="application/json"
+      method="POST"
+      handle-as="json"
+      on-response="handleResponse"
+      last-response="{{response}}"
     ></iron-ajax>
   </template>
   <script>
@@ -28,6 +29,10 @@
 
       Polymer({
         is: 'fc-login',
+
+        properties: {
+          token: String
+        },
 
         login: function(){
           var ajaxCall = this.$.ajax;
@@ -41,8 +46,8 @@
           ajaxCall.generateRequest();
         },
 
-        handleResponse: function(response){
-          console.log(response);
+        handleResponse: function(e, req){
+          this.token = this.response;
         }
       });
     })();
