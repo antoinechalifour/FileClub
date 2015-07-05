@@ -8,5 +8,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "page": "~1.6.3",
+    "iron-elements": "PolymerElements/iron-elements#~1.0.1",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.1"
+  }
 }

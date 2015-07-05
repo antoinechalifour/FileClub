@@ -1,0 +1,29 @@
+<script src="../bower_components/page/page.js"></script>
+<script type="text/javascript">
+  window.addEventListener('WebComponentsReady', function(){
+    page('/', function(){
+      app.route =  'home';
+      console.log('Root route.');
+    });
+
+    page('/app', function(){
+      app.route = 'app';
+      console.log('Root folder');
+    });
+
+    page('/app/:path', function(){
+      app.route = 'app';
+      app.params = '';
+      console.log('Specific folder route.');
+    });
+
+    page('*', function(){
+      app.route = '404';
+      console.log('404 not found');
+    });
+
+    page({
+      hashbang: true
+    });
+  });
+</script>
