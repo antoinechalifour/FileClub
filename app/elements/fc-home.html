@@ -1,0 +1,42 @@
+<link rel="import" href="fc-login.html">
+<link rel="import" href="fc-signup.html">
+
+<dom-module id="fc-home">
+  <style>
+    paper-material {
+      width: 50%;
+      margin: auto;
+      margin-top: 24px;
+      padding: 16px;
+    }
+  </style>
+  <template>
+    <paper-material elevation="1">
+        <paper-tabs selected="{{selected}}">
+          <paper-tab>Login</paper-tab>
+          <paper-tab>Sign Up</paper-tab>
+        </paper-tabs>
+
+        <iron-pages selected="{{selected}}">
+          <fc-login></fc-login>
+          <fc-signup></fc-signup>
+        </iron-pages>
+    </paper-material>
+  </template>
+  <script>
+    (function(){
+      'use strict';
+
+      Polymer({
+        is: 'fc-home',
+
+        properties: {
+          selected: {
+            value: 0,
+            type: Number
+          }
+        }
+      })
+    })();
+  </script>
+</dom-module>
