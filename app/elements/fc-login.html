@@ -1,17 +1,36 @@
+
+<!--  Login form that exports a json web token.-->
 <dom-module id="fc-login">
   <style>
+    iron-icon {
+      margin-right: 16px;
+      position: relative;
+      bottom: -10px;
+      color: #616161;
+    }
   </style>
   <template>
-    <h1>Login</h1>
-    <paper-input
-      id="inputUsername"
-      label="Username"></paper-input>
-    <paper-input
-      id="inputPassword"
-      label="Password"></paper-input>
+    <div class="layout horizontal center">
+      <iron-icon icon="icons:account-circle"></iron-icon>
+
+      <paper-input
+        id="inputUsername"
+        label="Username"></paper-input>
+
+    </div>
+
+    <div class="layout horizontal center">
+      <iron-icon icon="icons:lock"></iron-icon>
+
+      <paper-input
+        id="inputPassword"
+        label="Password"></paper-input>
+    </div>
+
     <paper-button
       on-click="login"
-      raised>Login</paper-button>
+      raised
+      class="paper-font-button">Login</paper-button>
 
     <iron-ajax
       id="ajax"

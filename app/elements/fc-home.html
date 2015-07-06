@@ -1,27 +1,82 @@
 <link rel="import" href="fc-login.html">
 <link rel="import" href="fc-signup.html">
 
+<!--  Polymer element for the login / sign up page. It gets a token from
+one of the forms. -->
 <dom-module id="fc-home">
   <style>
+    paper-tabs {
+      background-color: #3F51B5;
+      color: white;
+    }
+
+    paper-tabs::shadow #selectionBar {
+      background-color: #FF9800 !important;
+    }
+
+    paper-tabs paper-tab::shadow #ink {
+      color: #FF9800;
+    }
+
     paper-material {
-      width: 50%;
-      margin: auto;
-      margin-top: 24px;
-      padding: 16px;
+      background-color: white;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+    }
+
+    iron-pages {
+      padding: 24px;
+    }
+
+    :host {
+      height: 100vh;
+    }
+
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url(../img/home_screen.jpg);
+      background-size: cover;
+      background-position: bottom;
+    }
+
+    @media (max-width: 600px) {
+      paper-material {
+        width: 90%;
+        top: 100px;
+      }
+    }
+
+    @media (min-width: 601px) {
+      paper-material {
+        width: 50%;
+        top: 150px;
+      }
+    }
+
+    @media (min-width: 1281px) {
+      paper-material {
+        width: 30%;
+        top: 250px;
+      }
     }
   </style>
   <template>
+    <div class="background"></div>
     <paper-material elevation="1">
         <paper-tabs selected="{{selected}}">
-          <paper-tab>Login</paper-tab>
-          <paper-tab>Sign Up</paper-tab>
+          <paper-tab class="paper-font-body2">Login</paper-tab>
+          <paper-tab class="paper-font-body2">Sign Up</paper-tab>
         </paper-tabs>
 
         <iron-pages selected="{{selected}}">
           <fc-login token="{{token}}"></fc-login>
           <fc-signup></fc-signup>
         </iron-pages>
-        <p>{{token}}</p>
     </paper-material>
   </template>
   <script>
@@ -33,7 +88,7 @@
 
         attached: function(){
           this.selected = 0;
-          this.token = 'Not set yet.';
+          this.token = 'Not set yet.'; // for debugging purposes
         }
       });
     })();

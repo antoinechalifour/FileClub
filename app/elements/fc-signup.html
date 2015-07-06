@@ -3,16 +3,66 @@
 
   </style>
   <template>
-    <h1>Sign Up</h1>
-    <paper-input label="Username"></paper-input>
-    <paper-input label="Password"></paper-input>
+    <paper-input
+      id="inputUsername"
+      label="Username"></paper-input>
+
+    <paper-input
+      id="inputPassword"
+      label="Password"></paper-input>
+
+    <paper-button
+      on-click="signUp"
+      raised>Sign Up</paper-button>
+
+    <iron-ajax
+      id="ajax"
+      url="/api/users/"
+      content-type="application/json"
+      method="POST"
+      handle-as="json"
+      on-response="handleResponse"
+      on-error="handleError"
+      last-response="{{response}}"
+      last-error="{{error}}"
+      ></iron-ajax>
   </template>
   <script>
     (function(){
       'use strict';
 
       Polymer({
-        is: 'fc-signup'
+        is: 'fc-signup',
+
+        properties: {
+          token: {
+            type: String,
+            readOnly: true,
+            notify: true
+          }
+        },
+
+        signUp: function(){
+          var ajaxCall = this.$.ajax;
+          var username = this.$.inputUsername.value;
+          var password = this.$.inputPassword.value;
+
+          ajaxCall.body = JSON.stringify({
+            username: username,
+            password: password
+          });
+
+          ajaxCall.generateRequest();
+        },
+
+        handleResponse: function(e, req){
+          console.log(this.response);
+          this._setToken(this.response.token);
+        },
+
+        handleError: function(error, req){
+          console.log(this.error);
+        }
       })
     })();
   </script>
