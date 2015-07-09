@@ -6,7 +6,16 @@
       margin-right: 16px;
       position: relative;
       bottom: -10px;
-      color: #616161;
+      color: var(--paper-grey-700);
+    }
+
+    paper-button {
+      background-color: var(--paper-indigo-500);
+      color: white;
+    }
+
+    .login-group {
+      margin-top: 24px;
     }
   </style>
   <template>
@@ -15,6 +24,7 @@
 
       <paper-input
         id="inputUsername"
+        class="flex"
         label="Username"></paper-input>
 
     </div>
@@ -24,13 +34,17 @@
 
       <paper-input
         id="inputPassword"
+        class="flex"
         label="Password"></paper-input>
     </div>
 
-    <paper-button
-      on-click="login"
-      raised
-      class="paper-font-button">Login</paper-button>
+    <div class="layout horizontal flex login-group">
+      <div class="flex"></div>
+      <paper-button
+        on-click="login"
+        raised
+        class="paper-font-button">Login</paper-button>
+    </div>
 
     <iron-ajax
       id="ajax"

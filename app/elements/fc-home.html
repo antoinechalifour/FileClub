@@ -6,16 +6,16 @@ one of the forms. -->
 <dom-module id="fc-home">
   <style>
     paper-tabs {
-      background-color: #3F51B5;
+      background-color: var(--paper-indigo-500);
       color: white;
     }
 
     paper-tabs::shadow #selectionBar {
-      background-color: #FF9800 !important;
+      background-color: var(--paper-amber-a200) !important;
     }
 
     paper-tabs paper-tab::shadow #ink {
-      color: #FF9800;
+      color: var(--paper-amber-a200);
     }
 
     paper-material {
@@ -61,7 +61,7 @@ one of the forms. -->
     @media (min-width: 1281px) {
       paper-material {
         width: 30%;
-        top: 250px;
+        top: 200px;
       }
     }
   </style>
