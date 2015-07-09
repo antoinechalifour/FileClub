@@ -3,17 +3,30 @@
 
   </style>
   <template>
-    <paper-input
-      id="inputUsername"
-      label="Username"></paper-input>
 
-    <paper-input
-      id="inputPassword"
-      label="Password"></paper-input>
+    <div class="layout horizontal center">
+        <iron-icon icon="icons:account-circle"></iron-icon>
 
-    <paper-button
-      on-click="signUp"
-      raised>Sign Up</paper-button>
+        <paper-input
+          id="inputUsername"
+          label="Username"></paper-input>
+    </div>
+
+    <div class="layout horizontal center">
+      <iron-icon icon="icons:lock"></iron-icon>
+
+      <paper-input
+        id="inputPassword"
+        label="Password"></paper-input>
+    </div>
+
+    <div class="layout horizontal signup-group">
+      <div class="flex"></div>
+
+      <paper-button
+        on-click="signUp"
+        raised>Sign Up</paper-button>
+    </div>
 
     <iron-ajax
       id="ajax"
